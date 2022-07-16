@@ -25,11 +25,18 @@
       clientID: 'dc32826afd4c0528c392',
       clientSecret: '6f4e0049a768cb883d3bbc1ae0b29e0b3b0943f1',
       repo:'gitalk-comment',
-      owner:dwjnee,
-      admin: [''],
-      // facebook-like distraction free mode
+      owner:‘dwjnee’,
+      admin: ['dwjnee'],
+      title: decodeURI(window.title_id),
       distractionFreeMode: false
+      id: md5(window.location.hash),
+      enableHotKey: true,
     })
+    window.onhashchange = function (event) {
+    if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
+      location.reload()
+    }
+  }
   </script>
 
 
